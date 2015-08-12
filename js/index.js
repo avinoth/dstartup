@@ -2,7 +2,7 @@
 (function() {
 
   $(function() {
-    var alterPage, fetchRandom, searchStartups, umm, url;
+    var alterPage, animateScore, fetchRandom, searchStartups, umm, url;
     umm = 'd96b535e49275e48b04caa5c5df186b4c8d3f09b36672a65';
     url = 'https://api.angel.co/1';
     searchStartups = function() {
@@ -28,18 +28,37 @@
         type: 'GET',
         dataType: 'JSONP',
         success: function(sdata) {
-          return alterPage(sdata.name, sdata.company_url, sdata.product_desc);
+          return alterPage(sdata.name, sdata.company_url, sdata.product_desc, sdata.quality);
         }
       });
     };
-    alterPage = function(name, url, description) {
+    alterPage = function(name, url, description, score) {
       $('#name').text(name);
       $('#url').text(url);
-      return $('#desc').text(description);
+      $('#desc').text(description);
+      return animateScore(score);
     };
-    return $('#explorer').on('click', function(e) {
+    $('#explorer').on('click', function(e) {
       return searchStartups();
     });
+    $(document).keydown(function(e) {
+      if (e.which === 13) {
+        return searchStartups();
+      }
+    });
+    return animateScore = function(score) {
+      return jQuery({
+        Counter: 0
+      }).animate({
+        Counter: score
+      }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function() {
+          return $('#score').text(Math.ceil(this.Counter));
+        }
+      });
+    };
   });
 
 }).call(this);

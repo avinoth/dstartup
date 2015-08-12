@@ -21,12 +21,24 @@ $ ->
       type: 'GET'
       dataType: 'JSONP'
       success: (sdata) ->
-        alterPage sdata.name, sdata.company_url, sdata.product_desc
+        alterPage sdata.name, sdata.company_url, sdata.product_desc, sdata.quality
 
-  alterPage = (name, url, description) ->
+  alterPage = (name, url, description, score) ->
     $('#name').text(name)
     $('#url').text(url)
     $('#desc').text(description)
+    animateScore(score)
 
   $('#explorer').on 'click', (e) ->
     searchStartups()
+
+  $(document).keydown (e) ->
+    if e.which == 13
+      searchStartups()
+
+  animateScore = (score) ->
+    jQuery(Counter: 0).animate { Counter: score },
+      duration: 1000
+      easing: 'swing'
+      step: ->
+        $('#score').text Math.ceil(@Counter)

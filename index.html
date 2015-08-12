@@ -15,7 +15,7 @@
     <link href="css/bootstrap.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
-    <link href="css/landing-page.css" rel="stylesheet">
+    <link href="css/custom.css" rel="stylesheet">
 
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
@@ -33,31 +33,27 @@
 <body>
 
     <!-- Header -->
-    <a name="about"></a>
-    <div class="intro-header">
-        <div class="container">
+        <div class="container-fluid">
 
             <div class="row">
-                <div class="col-lg-12">
-                    <div class="intro-message">
-                        <h1 id="name">A Startup</h1>
-                        <h4 id="url">github.com/avinoth/dstartup</h4>
-                        <h3 id="desc">Discover random startups</h3>
-                        <hr class="intro-divider">
-                        <ul class="list-inline intro-social-buttons">
-                            <li>
-                                <a class="btn btn-default btn-lg" id="explorer"><span class="network-name">One More</span></a>
-                            </li>
-                        </ul>
+                <div class="col-lg-10">
+                    <div class="jumbotron">
+                        <div class="intro-message">
+                            <h1 id="name">Discover A Startup</h1>
+                            <h4><a href="https://github.com/avinoth/dstartup" id="url">github.com/avinoth/dstartup</a></h4>
+                            <p id="desc">Discover random startups</p>
+                            <hr>
+                        </div>
                     </div>
+                </div>
+                <div class="col-sm-2">
+                    <a class="btn btn-info btn-lg text-center" id="explorer"><span class="network-name">One More</span></a><br />
+                    <h1 id="score">0</h1>
                 </div>
             </div>
 
         </div>
         <!-- /.container -->
-
-    </div>
-    <!-- /.intro-header -->
 
     <!-- jQuery -->
     <script src="js/jquery.js"></script>
