@@ -35,6 +35,7 @@
     alterPage = function(name, url, description, score) {
       $('#name').text(name);
       $('#url').text(url);
+      $('#url').attr('href', url);
       $('#desc').text(description);
       return animateScore(score);
     };
