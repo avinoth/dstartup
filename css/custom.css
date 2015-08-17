@@ -5,3 +5,11 @@
 .jumbotron {
   background: #FFF;
 }
+
+.footer {
+  font-size: 15px;
+}
+
+.footer .fa {
+  padding: 5px;
+}
