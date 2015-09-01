@@ -12,7 +12,7 @@ var DisplayStartup = React.createClass({
 
   componentDidMount: function () {
     return this.searchStartups
-  }
+  },
 
   searchStartups: function() {
     alphabets = 'abcdefghijklmnopqurstuvwxyz';
