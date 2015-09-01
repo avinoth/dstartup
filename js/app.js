@@ -10,6 +10,10 @@ var DisplayStartup = React.createClass({
     };
   },
 
+  componentDidMount: function () {
+    return this.searchStartups
+  }
+
   searchStartups: function() {
     alphabets = 'abcdefghijklmnopqurstuvwxyz';
     rand = alphabets.substr(Math.floor(Math.random() * 26), 1);
@@ -30,7 +34,9 @@ var DisplayStartup = React.createClass({
       type: 'GET',
       dataType: 'JSONP',
       success: function(sdata) {
-        this.setState({name: sdata.name, url: sdata.company_url, description: sdata.product_desc, score: sdata.quality})
+        if (this.isMounted()) {
+          this.setState({name: sdata.name, url: sdata.company_url, description: sdata.product_desc, score: sdata.quality});
+        }
       }.bind(this),
     });
   },
